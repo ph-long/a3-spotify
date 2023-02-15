@@ -23,6 +23,10 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
+    this.spotifyService.searchFor(this.searchCategory, this.searchString).then((data) => {
+      this.resources = data
+      console.log(this.resources)
+    })
     //TODO: call search function in spotifyService and parse response
   }
 
