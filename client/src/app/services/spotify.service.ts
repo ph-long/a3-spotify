@@ -94,26 +94,40 @@ export class SpotifyService {
       return albums
     })
     //TODO: use the albums for an artist endpoint to make a request to express.
-    return null as any;
   }
 
   getAlbum(albumId:string):Promise<AlbumData> {
     //TODO: use the album endpoint to make a request to express.
-    return null as any;
+    return this.sendRequestToExpress('/album/' + albumId).then((data) => {
+      return new AlbumData(data);
+    })
   }
 
-  getTracksForAlbum(albumId:string):Promise<TrackData[]> {
+  getTracksForAlbum(albumId:string) {
+    return this.sendRequestToExpress('/album-tracks/' + albumId).then((data) => {
+      const tracks = data["items"].map((item) => {return new TrackData(item)})
+      return tracks
+    })
     //TODO: use the tracks for album endpoint to make a request to express.
-    return null as any;
   }
 
   getTrack(trackId:string):Promise<TrackData> {
     //TODO: use the track endpoint to make a request to express.
-    return null as any;
+    return this.sendRequestToExpress('/track/' + trackId).then((data) => {
+      return new TrackData(data);
+    })
   }
 
-  getAudioFeaturesForTrack(trackId:string):Promise<TrackFeature[]> {
+  getAudioFeaturesForTrack(trackId:string) {
     //TODO: use the audio features for track endpoint to make a request to express.
-    return null as any;
+    return this.sendRequestToExpress('/track-audio-features/' + trackId).then((data) => {
+      const trackFeatures = [];
+      for (let key in data) {
+        if (TrackFeature.FeatureTypes.includes(key)) {
+          trackFeatures.push(new TrackFeature(key, data[key]))
+        }
+      }
+      return trackFeatures;
+    })
   }
 }

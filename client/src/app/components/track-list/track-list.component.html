@@ -15,9 +15,9 @@
 		<tr *ngFor="let track of tracks; let i = index">
 			<!--TODO: Populate with row index (start with 1!)-->
 			<td>{{i + 1}}</td>
-			<td href = "{{track.url}}">
+			<td>
 				<!--TODO: link to the endpoint for that track, display the track's name-->
-				<a>{{track.name}}</a>
+				<a href="http://localhost:4200/track/{{track.id}}">{{track.name}}</a>
 			</td>
 			<!--TODO: display the track's duration-->
 			<td>{{track.durationStr}}</td>
