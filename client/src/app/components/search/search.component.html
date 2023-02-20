@@ -12,6 +12,6 @@
 <!--TODO: Call search function when the button is clicked-->
 <button class="btn btn-light" (click)="search()">Search</button>
 <!--TODO: Display a carousel component if searching for an artist or album. Bind carousel's resources and give it a static carouselId.-->
-<app-carousel *ngIf = "searchCategory!='track'" [resources] = "resources"/>
+<app-carousel *ngIf = "searchCategory!='track'" [carouselId] = "searchCategory" [resources] = "resources"/>
 <!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.-->
 <app-track-list *ngIf = "searchCategory=='track'" [tracks] = "resources"/>

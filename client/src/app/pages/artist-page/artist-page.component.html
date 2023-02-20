@@ -31,12 +31,12 @@
 		<!--TODO: display artist name-->
 		<h3>{{artist.name}}'s Albums</h3>
 		<!--TODO: Display a carousel component for the artist's albums. Bind carousel's resources and give it a static carouselId.-->
-		<app-carousel [resources] = "albums"/>
+		<app-carousel [carouselId]="'albums'" [resources]="albums"></app-carousel>
 	</div>
 	<div class="col-6">
 		<h3>Similar Artists</h3>
 		<!--TODO: Display a carousel component for similar artists. Bind carousel's resources and give it a static carouselId.-->
-		<app-carousel [resources] = "relatedArtists"/>
+		<app-carousel [carouselId]="'artists'" [resources]="relatedArtists"></app-carousel>
 	</div>
 
 </div>

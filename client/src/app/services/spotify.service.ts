@@ -44,7 +44,6 @@ export class SpotifyService {
     //JavaScript's "map" function might be useful for this, but there are other ways of building the array.
     let resources = [];
     return this.sendRequestToExpress('/search/' + category + "/" + encodeURIComponent(resource)).then((data) => {
-      // console.log(data)  
       if (category == "artist") {
           resources = data["artists"]["items"].map((item) => {
             return new ArtistData(item);
