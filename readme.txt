@@ -41,4 +41,7 @@ Nope
 
 
 6. Is there anything special we need to know in order to run your code?
-Nothing
+cd into client and webserver folders
+run npm install for both folders to install dependencies and node_modules folders
+use ng serve --open on client folder to run client
+use npm start on webserver folder to run server
